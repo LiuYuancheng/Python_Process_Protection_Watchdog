@@ -1,6 +1,6 @@
 # Python Process Watchdog 
 
-![](logo.png)
+![](doc/img/logo.png)
 
 **Project Design Purpose** : During participating the cyber exercise as red team member, we found that the injected malware or attack launching program can easy be stopped by the blue team or defense program / mechanisms via killing the process / deleting the file. To address this, our project aims to develop a robust watchdog program designed to bind to target programs, diligently monitor their execution states, and ensure uninterrupted functionality.
 
@@ -47,7 +47,7 @@ The watchdog not only shields the program during execution, but also can be used
 
 We aim to deliver a Python program execution protection watchdog library, designed for effortless integration into existing programs, serving as a defense against unauthorized termination by external entities or software. This library is crafted to empower users with a user-friendly and robust tool, offering both prevention and recovery measures to enhance the resilience of their programs against unintended disruptions or deliberate interference. The overview work flow of the watchdog lib is shown below : 
 
-![](../../doc/img/watchdog/overview.png)
+![](doc/img/overview.png)
 
 Version : `v1.0.1`
 
@@ -72,7 +72,7 @@ The watch dog will also provide target execution file recovery function : if in 
 
 Users have the flexibility to bind the watchdog to a single program, enabling it to autonomously protect itself against potential threats or disruptions. The following demonstration illustrates how a program, integrated with the watchdog, can self-protect, preventing external attempts to terminate or stop it. Even the user both terminates the program and deletes its files, the watchdog initiates a self-recovery process, ensuring the continuous and uninterrupted execution of the program.
 
-![](../../doc/img/watchdog/watchdog1.gif)
+![](/doc/img/watchdog1.gif)
 
 Version : `v1.0.1`
 
@@ -84,7 +84,7 @@ Entire Full HD video on YouTube :  [View the full demo on YouTube](https://www.y
 
 Protection Chain Configuration offer Offers the capability to establish protection chains by hooking the watchdog to multiple programs. This collaborative approach ensures that the programs within the chain proactively protect each other. The following demonstration highlights the process of programs binding with the watchdog to construct a protective chain, fostering mutual defense among them. Regardless of the number of programs in the chain that a user attempts to terminate, if there is more than one program actively running, all the programs in the chain will be recover in the end. 
 
-![](../../doc/img/watchdog/watchdog2.gif)
+![](doc/img/watchdog2.gif)
 
 Version : `v1.0.1`
 
@@ -100,7 +100,7 @@ Entire Full HD video on YouTube :  [View the full demo on YouTube](https://youtu
 
 The program protection watchdog will run in sub-thread parallel with the main hooked program thread. It will monitor the protect target's process, if the target process is stopped, it will start a new individual process to run the target. In a self-protective scenario, the watchdog spawns a twin "shadow" watchdog in the background as a separate individual process. This dual-layered defense strategy involves the primary program's watchdog safeguarding the shadow watchdog, while the shadow watchdog reciprocally protects the main program. This intricate protection deadlock mechanism ensures a robust shield against potential disruptions, creating a resilient and interlocked defense system. The program work flow diagram is shown below : 
 
-![](../../doc/img/watchdog/workflow.png)
+![](doc/img/workflow.png)
 
 Version : `v1.0.1`
 
@@ -148,7 +148,7 @@ Each watchdog maintains comprehensive information about its protected targets, d
 
 To build a protect chain, the user can use peer to peer protection config ( each peer share one record file )  to build the protection ring or make several watchdogs to share one record file to build a hub sharp protection chain or create a mixed one as shown below : 
 
-![](../../doc/img/watchdog/protectChain.png)
+![](doc/img/protectChain.png)
 
 Version : `v1.0.1`
 
