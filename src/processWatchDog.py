@@ -54,7 +54,7 @@ class processWatchdog(threading.Thread):
                     example :
                         targetInfo = {
                             'path': 'C:\\User\\test\test.py',   # target file path.
-                            # target file exeuction cmd, it need to be a raw string. if you use the 
+                            # target file execution cmd, it need to be a raw string. if you use the 
                             # python <os.path.join> to pass in the file path, the cmd will through execution error.
                             'execution': 'python3 C:\\User\\test\test.py',  
                             'backup': 'C:\\User\\test\test.zip',    # target program zip file
@@ -72,7 +72,7 @@ class processWatchdog(threading.Thread):
         self.ownPIdx = idx          # self process ID idx in the record file.
         self.rcdFile = rcdPath
         self.checkInterval = interval
-        self.termate = False
+        self.terminate = False
         print("Watchdog init finished.")
 
 #-----------------------------------------------------------------------------
@@ -81,7 +81,7 @@ class processWatchdog(threading.Thread):
         # delay x second to want parent program finish init.
         time.sleep(DEFAULT_WAIT)
         print("Start to run the process watchdog.")
-        while not self.termate:
+        while not self.terminate:
             self.checkProtectTarget()
             time.sleep(self.checkInterval)
         print("Process watchdog stop.")
@@ -111,7 +111,7 @@ class processWatchdog(threading.Thread):
                 print("Watchdog expects the target is not running.")
     
         if autoRestart:
-            print("Auto resetart the target program...")
+            print("Auto restart the target program...")
             if not os.path.exists(self.tgtInfo[TGT_PATH_KEY]):
                 print("Redeploy program from backup")
                 self.redeployTgtProgram()
@@ -171,7 +171,7 @@ class processWatchdog(threading.Thread):
 
     #-----------------------------------------------------------------------------
     def stop(self):
-        self.termate = True
+        self.terminate = True
 
 #-----------------------------------------------------------------------------
 #-----------------------------------------------------------------------------
@@ -183,7 +183,7 @@ def main():
     rcdFile = os.path.join(dirpath, 'selfprotectRcd.txt')
     targetInfo = {
         'path': tgtFile,    # target file path.
-        # target file exeuction cmd
+        # target file execution cmd
         'execution': 'python C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\selfprotectionExample1.py',
         # target program zip file
         'backup': 'C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\recoverZips\\selfprotectionExample1.zip',

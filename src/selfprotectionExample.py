@@ -42,7 +42,7 @@ class MalwareEmuFrame(wx.Frame):
             recordPath (str): refer to <processWatchdog> init doc.
             idx(ing): refer to <processWatchdog> init doc.
             frameTitle (str, optional): frame windows title. Defaults to 'MalwareEmuUI'.
-            bgColor: backgound color string
+            bgColor: background color string
         """
         super().__init__(parent=None, title=frameTitle)
         self.SetBackgroundColour(wx.Colour(bgColorStr))
@@ -52,7 +52,7 @@ class MalwareEmuFrame(wx.Frame):
                                                          idx=idx, interval=3)
         # Init the UI sizer
         sizer = wx.BoxSizer(wx.VERTICAL)
-        self.stTxt = wx.StaticText(self, -1, " Self ID : \n Targt ID : \n Target Running :")
+        self.stTxt = wx.StaticText(self, -1, " Self ID : \n Target ID : \n Target Running :")
         self.stTxt.SetFont(wx.Font(20, wx.SWISS, wx.NORMAL, wx.NORMAL))
         sizer.Add(self.stTxt)
         if os.path.exists(logoImg):
@@ -80,7 +80,7 @@ class MalwareEmuFrame(wx.Frame):
         now = time.time()
         print("main frame update at %s" % str(now))
         dataDict = self.protector.getCrtInfo()
-        self.stTxt.SetLabel(" Self ID : %s \n Targt ID : %s \n Target Running : %s " % (
+        self.stTxt.SetLabel(" Self ID : %s \n Target ID : %s \n Target Running : %s " % (
             str(dataDict['ownPid']), str(dataDict['tgtPid']), str(dataDict['tgtRun'])))
 
 #-----------------------------------------------------------------------------
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     rcdFile = os.path.join(dirpath, 'selfprotectRcd.txt')
     targetInfo = {
         'path': tgtFile,    # target file path.
-        # target file exeuction cmd
+        # target file execution cmd
         'execution': 'python C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\selfprotectionWatchdog.py',  
         'backup': 'C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\recoverZips\\selfprotectionWatchdog.zip', # target program zip file
         'rcdIdx': 1 # configured id in record file.

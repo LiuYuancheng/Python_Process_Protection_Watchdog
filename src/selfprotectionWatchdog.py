@@ -30,7 +30,7 @@ tgtFile = os.path.join(dirpath, 'selfprotectionExample.py')
 rcdFile = os.path.join(dirpath, 'selfprotectRcd.txt')
 targetInfo = {
     'path': tgtFile,    # target file path.
-    # target file exeuction cmd
+    # target file execution cmd
     'execution': 'python C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\selfprotectionExample.py',
     # target program zip file
     'backup': 'C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\recoverZips\\selfprotectionExample.zip',
