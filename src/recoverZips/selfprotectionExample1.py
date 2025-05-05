@@ -3,8 +3,8 @@
 # Name:        selfprotectionExample1.py
 #
 # Purpose:     This program is a test case of the process protector to show the 
-#              user how 2 malwares use the processProtector to protect each other 
-#              to avoid the user forse kill any one of them.
+#              user how 2 malware use the processProtector to protect each other 
+#              to avoid the user focus kill any one of them.
 #
 # Author:      Yuancheng Liu
 #
@@ -41,7 +41,7 @@ class MyFrame(wx.Frame):
         rcdFile = os.path.join(dirpath, 'selfprotectRcd.txt')
         targetInfo = {
             'path': tgtFile,    # target file path.
-            # target file exeuction cmd
+            # target file execution cmd
             'execution': 'python C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\selfprotectionExample2.py',  
             'backup': 'C:\\Works\\NCL\\Project\\Malware_Repo\\src\\processWatchDog\\recoveZips\\selfprotectionExample2.zip', # target program zip file
             'rcdIdx': 1 # configured id in record file.
@@ -81,7 +81,7 @@ class MyFrame(wx.Frame):
         now = time.time()
         print("main frame update at %s" % str(now))
         dataDict = self.protector.getCrtInfo()
-        self.stTxt.SetLabel(" Self ID:%s \n Targt ID:%s \n Target Running:%s " % (
+        self.stTxt.SetLabel(" Self ID:%s \n Target ID:%s \n Target Running:%s " % (
             str(dataDict['ownPid']), str(dataDict['tgtPid']), str(dataDict['tgtRun'])))
 
 #-----------------------------------------------------------------------------

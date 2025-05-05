@@ -92,7 +92,7 @@ class MalwareEmuFrame(wx.Frame):
 #-----------------------------------------------------------------------------
 #-----------------------------------------------------------------------------
 if __name__ == '__main__':
-    # Init the paramters : 
+    # Init the parameters : 
     tgtFile = os.path.join(dirpath, 'selfprotectionWatchdog.py')
     rcdFile = os.path.join(dirpath, 'selfprotectRcd.txt')
     targetInfo = {

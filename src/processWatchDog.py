@@ -146,7 +146,7 @@ class processWatchdog(threading.Thread):
             if not os.path.exists(tgtDir): os.mkdir(tgtDir)
             with zipfile.ZipFile(backupzip, 'r') as zipobj:
                 zipobj.extractall(tgtDir)
-            print("redeployTgtProgram() : success recorver the file.")
+            print("redeployTgtProgram() : success recover the file.")
         else:
             print("Target backup file is not exist: %s" %str(backupzip))
 
